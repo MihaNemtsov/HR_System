@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Mens {
 
-    int ID;
-    String FIO;
-    int Post_ID;
-    int Department_ID;
-    Date Date_Edit;
-    int Role;
+    int id;
+    String fio;
+    int postID;
+    int departmentID;
+    Date dateEdit;
+    int role;
     String email;
 
     void add() { }
-    void  delete() {}
+    void delete() {}
     void edit() {}
 }

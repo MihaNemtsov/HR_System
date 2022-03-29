@@ -3,13 +3,13 @@ package DataBase;
 import java.util.Date;
 
 public class Departmens {
-    int ID;
-    String Name;
-    int Parent_ID;
-    int Men_ID;
-    Date Date_Edit;
+    int id;
+    String name;
+    int parentID;
+    int menID;
+    Date dateEdit;
 
     void add() { }
-    void  delete() {}
+    void delete() {}
     void edit() {}
 }

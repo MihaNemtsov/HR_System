@@ -3,11 +3,11 @@ package DataBase;
 import java.util.Date;
 
 public class Post {
-    int ID;
-    String Title;
-    Date Date_Edit;
+    int id;
+    String title;
+    Date dateEdit;
 
     void add() { }
-    void  delete() {}
+    void delete() {}
     void edit() {}
 }
