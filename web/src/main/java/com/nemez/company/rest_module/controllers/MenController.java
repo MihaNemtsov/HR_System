@@ -32,10 +32,15 @@ public class MenController {
     }
 
     @PutMapping(value = "/men/update/{id}")
-    public ResponseEntity<?> update(@PathVariable(name = "id") int id, Mens mens) {
+    public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody Mens mens) {
         Mens flag = service.findMen(id);
 
         if(flag != null) {
+            flag.setFio(mens.getFio());
+            flag.setDepartmentID(mens.getDepartmentID());
+            flag.setPostID(mens.getPostID());
+            //flag.setDateEdit(mens.getDateEdit());
+            flag.setRole(mens.getRole());
             service.updateMen(flag);
             return new ResponseEntity<>(HttpStatus.OK);
         }

@@ -32,12 +32,14 @@ public class PostController {
     }
 
     @PutMapping(value = "/post/update/{id}")
-    public ResponseEntity<?> update(@PathVariable(name = "id") int id, Post post) {
+    public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody Post post) {
         Post flag = service.findPost(id);
         if(flag == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         else {
+            flag.setTitle(post.getTitle());
+            //flag.setDateEdit(post.getDateEdit());
             service.updatePost(flag);
             return new ResponseEntity<>(HttpStatus.OK);
         }

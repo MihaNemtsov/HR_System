@@ -36,6 +36,10 @@ public class DepartmentController {
         Departments flag = service.findDepartment(id);
 
         if(flag != null) {
+            flag.setName(departments.getName());
+            flag.setParentID(departments.getParentID());
+            flag.setMenID(departments.getMenID());
+            //flag.setDateEdit(departments.getDateEdit());
             service.updateDepartment(flag);
             return new ResponseEntity<>(HttpStatus.OK);
         }
