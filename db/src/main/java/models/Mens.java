@@ -2,22 +2,23 @@ package models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table (name = "mens")
+@Table(name = "mens")
 public class Mens {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "fio")
     private String fio;
 
     @Column(name = "post_id")
-    private int postID;
+    private Integer postID;
 
     @Column(name = "department_id")
-    private int departmentID;
+    private Integer departmentID;
 
     @Column(name = "date_edit")
     private Date dateEdit;
@@ -26,20 +27,20 @@ public class Mens {
     private int role;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id", insertable=false, updatable=false)
+    @JoinColumn(name = "post_id", insertable = false, updatable = false)
     //@JoinColumn(name = "post_id")
     private Post post;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_id", insertable=false, updatable=false)
+    @JoinColumn(name = "department_id", insertable = false, updatable = false)
     private Departments department;
 
-    @OneToOne(mappedBy = "men")
-    private Departments departments;
+    @OneToMany(mappedBy = "men", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Departments> departments;
 
 
-
-    public Mens() { }
+    public Mens() {
+    }
 
     public Mens(String fio, int postID, int departmentID, int role) {
         this.fio = fio;

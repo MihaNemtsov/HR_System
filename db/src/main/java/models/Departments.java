@@ -6,21 +6,21 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table (name = "departments")
+@Table(name = "departments")
 public class Departments {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "parent_id")
-    private int parentID;
+    private Integer parentID;
 
     @Column(name = "men_id")
-    private int menID;
+    private Integer menID;
 
     @Column(name = "date_edit")
     private Date dateEdit;
@@ -28,12 +28,13 @@ public class Departments {
     @OneToMany(mappedBy = "department")
     private List<Mens> mens;
 
-    @OneToOne
-    @JoinColumn(name = "men_id", insertable=false, updatable=false)
+    @ManyToOne
+    @JoinColumn(name = "men_id", insertable = false, updatable = false)
     private Mens men;
 
 
-    public Departments() {}
+    public Departments() {
+    }
 
     public Departments(String name, int parentID, int menID) {
         this.name = name;
@@ -43,17 +44,39 @@ public class Departments {
         mens = new ArrayList<Mens>();
     }
 
-    public int getId() {return id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getName() {
+        return name;
+    }
 
-    public int getParentID() { return parentID; }
-    public void setParentID(int parentID) { this.parentID = parentID; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public int getMenID() { return menID; }
-    public void setMenID(int menID) { this.menID = menID; }
+    public int getParentID() {
+        return parentID;
+    }
 
-    public Date getDateEdit() { return dateEdit; }
-    public void setDateEdit(Date dateEdit) { this.dateEdit = dateEdit; }
+    public void setParentID(int parentID) {
+        this.parentID = parentID;
+    }
+
+    public int getMenID() {
+        return menID;
+    }
+
+    public void setMenID(int menID) {
+        this.menID = menID;
+    }
+
+    public Date getDateEdit() {
+        return dateEdit;
+    }
+
+    public void setDateEdit(Date dateEdit) {
+        this.dateEdit = dateEdit;
+    }
 }

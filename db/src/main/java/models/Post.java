@@ -6,22 +6,23 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table (name = "post")
+@Table(name = "post")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    @Column (name = "title")
+    @Column(name = "title")
     private String title;
 
-    @Column (name = "date_edit")
+    @Column(name = "date_edit")
     private Date dateEdit;
 
     @OneToMany(mappedBy = "post")
     private List<Mens> men;
 
-    public Post() { }
+    public Post() {
+    }
 
     public Post(String title) {
         this.id = id;

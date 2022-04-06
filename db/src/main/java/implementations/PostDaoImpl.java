@@ -6,6 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateSessionFactoryUtil;
 
+import java.util.List;
+
 public class PostDaoImpl implements IPostDao {
     public Post findById(int id) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
@@ -38,4 +40,5 @@ public class PostDaoImpl implements IPostDao {
         transaction.commit();
         session.close();
     }
+
 }

@@ -1,5 +1,8 @@
 import junit.framework.TestCase;
 import models.Departments;
+import services.DepartmentService;
+import services.MenService;
+import services.PostService;
 
 public class Test extends TestCase {
     private DepartmentService dp = new DepartmentService();
