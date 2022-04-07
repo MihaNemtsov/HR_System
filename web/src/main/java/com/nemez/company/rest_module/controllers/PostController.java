@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 public class PostController {
     private final PostServiceImpl service;
@@ -39,7 +41,7 @@ public class PostController {
         }
         else {
             flag.setTitle(post.getTitle());
-            //flag.setDateEdit(post.getDateEdit());
+            flag.setDateEdit(new Date());
             service.updatePost(flag);
             return new ResponseEntity<>(HttpStatus.OK);
         }

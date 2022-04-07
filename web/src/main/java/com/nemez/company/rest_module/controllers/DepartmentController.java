@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 public class DepartmentController {
     private DepartmentServiceImpl service;
 
@@ -39,7 +41,7 @@ public class DepartmentController {
             flag.setName(departments.getName());
             flag.setParentID(departments.getParentID());
             flag.setMenID(departments.getMenID());
-            //flag.setDateEdit(departments.getDateEdit());
+            flag.setDateEdit(new Date());
             service.updateDepartment(flag);
             return new ResponseEntity<>(HttpStatus.OK);
         }

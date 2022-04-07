@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 public class MenController {
     private MenServiceImpl service;
@@ -39,7 +41,7 @@ public class MenController {
             flag.setFio(mens.getFio());
             flag.setDepartmentID(mens.getDepartmentID());
             flag.setPostID(mens.getPostID());
-            //flag.setDateEdit(mens.getDateEdit());
+            flag.setDateEdit(new Date());
             flag.setRole(mens.getRole());
             service.updateMen(flag);
             return new ResponseEntity<>(HttpStatus.OK);
