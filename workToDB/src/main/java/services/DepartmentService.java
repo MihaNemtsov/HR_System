@@ -2,6 +2,7 @@ package services;
 
 import implementations.DepartmentDaoImpl;
 import models.Departments;
+import send.MailService;
 
 
 public class DepartmentService {
@@ -23,6 +24,7 @@ public class DepartmentService {
         }
         else {
             departmentDao.save(department);
+            new MailService().sendMail("example@gmail.com","Save department");
             return 0;
         }
     }
@@ -33,6 +35,7 @@ public class DepartmentService {
         }
         else {
             departmentDao.delete(department);
+            new MailService().sendMail("example@gmail.com","Delete department with id = " + department.getId());
             return 0;
         }
 
@@ -44,6 +47,7 @@ public class DepartmentService {
         }
         else {
             departmentDao.update(department);
+            new MailService().sendMail("hatulmadan144@gmail.com","Update department with id = " + department.getId());
             return 0;
         }
     }
