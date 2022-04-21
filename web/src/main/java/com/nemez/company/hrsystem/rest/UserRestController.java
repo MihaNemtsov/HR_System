@@ -24,7 +24,6 @@ public class UserRestController {
     @GetMapping(value = "{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable(name = "id") Integer id){
         User user = userService.findById(id);
-
         if(user == null){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }

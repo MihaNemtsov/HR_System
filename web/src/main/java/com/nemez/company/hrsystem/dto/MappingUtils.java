@@ -1,8 +1,8 @@
 package com.nemez.company.hrsystem.dto;
 
-import models.Departments;
-import models.Mens;
-import models.Post;
+import com.nemez.company.hrsystem.model.Departments;
+import com.nemez.company.hrsystem.model.Mens;
+import com.nemez.company.hrsystem.model.Post;
 import org.springframework.stereotype.Service;
 
 @Service
